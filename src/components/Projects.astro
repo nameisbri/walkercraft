@@ -1,34 +1,74 @@
 ---
+const featured = { caption: "Custom built-ins — Hamilton", tag: "Carpentry" };
+
 const projects = [
-  { caption: "Custom built-ins — Hamilton", tall: true },
-  { caption: "Deck build — Ancaster", tall: false },
-  { caption: "Crown moulding — Burlington", tall: false },
-  { caption: "Fence installation — Dundas", tall: false },
-  { caption: "Kitchen shelving — Oakville", tall: false },
-  { caption: "Exterior repair — Stoney Creek", tall: true },
+  { caption: "Deck build — Ancaster", tag: "Exterior" },
+  { caption: "Crown moulding — Burlington", tag: "Carpentry" },
+  { caption: "Fence installation — Dundas", tag: "Exterior" },
+  { caption: "Kitchen shelving — Oakville", tag: "Carpentry" },
+  { caption: "Exterior repair — Stoney Creek", tag: "Handyman" },
 ];
 ---
 
 <section id="projects" class="relative py-20 md:py-32 bg-bark text-white overflow-hidden grain">
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-    <h2 class="font-display text-4xl md:text-5xl mb-12">Our Work</h2>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 md:mb-16 gap-4">
+      <h2 class="font-display text-4xl md:text-5xl">Our Work</h2>
+      <p class="text-warmgray-500 text-sm">50+ projects across the GTHA</p>
+    </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-      {projects.map((project) => (
-        <div
-          class:list={[
-            "group relative rounded-sm overflow-hidden border border-white/10",
-            project.tall ? "row-span-2 aspect-[3/5]" : "aspect-[4/3]",
-          ]}
-        >
+    <!-- Bento grid: featured large left, 2 stacked right, 3 across bottom -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+
+      <!-- Featured project: spans 2 cols + 2 rows -->
+      <div class="group relative col-span-2 row-span-2 rounded-sm overflow-hidden border border-white/10">
+        <div class="aspect-[4/3] md:aspect-auto md:h-full">
           <!-- Placeholder: Replace with <img> -->
           <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
-            <p class="text-warmgray-500 text-xs tracking-wide uppercase">{project.caption}</p>
+            <p class="text-warmgray-500 text-xs tracking-wide uppercase">{featured.caption}</p>
           </div>
 
-          <!-- Hover overlay -->
-          <div class="absolute inset-0 bg-bark/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-4">
-            <p class="text-sm text-warmgray-300">{project.caption}</p>
+          <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 md:p-8">
+            <span class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">{featured.tag}</span>
+            <p class="font-display text-xl md:text-2xl">{featured.caption}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: 2 stacked images -->
+      {projects.slice(0, 2).map((project) => (
+        <div class="group relative col-span-1 rounded-sm overflow-hidden border border-white/10">
+          <div class="aspect-[4/3]">
+            <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
+              <p class="text-warmgray-500 text-[10px] tracking-wide uppercase text-center px-2">{project.caption}</p>
+            </div>
+
+            <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
+              <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
+              <p class="text-sm font-display">{project.caption}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Bottom row: 3 images spanning 2 cols each on mobile, 4 cols total -->
+      <!-- On mobile: 2 cols, so each takes 1 col. On desktop: first takes 1, rest take 1, last takes 2 -->
+
+    </div>
+
+    <!-- Bottom row: separate grid for clean 3-column layout -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-3">
+      {projects.slice(2).map((project) => (
+        <div class="group relative rounded-sm overflow-hidden border border-white/10">
+          <div class="aspect-[3/2]">
+            <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
+              <p class="text-warmgray-500 text-[10px] tracking-wide uppercase text-center px-2">{project.caption}</p>
+            </div>
+
+            <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
+              <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
+              <p class="text-sm font-display">{project.caption}</p>
+            </div>
           </div>
         </div>
       ))}
