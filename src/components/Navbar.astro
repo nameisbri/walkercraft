@@ -2,35 +2,41 @@
 
 ---
 
-<nav class="bg-charcoal text-white fixed w-full top-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="/" class="text-2xl font-bold tracking-wider text-amber">WALKERCRAFT</a>
+<nav class="bg-bark/95 backdrop-blur-sm text-white fixed w-full top-0 z-50 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-display text-2xl tracking-wide text-gold-light">Walkercraft</a>
 
-    <a
-      href="tel:+15551234567"
-      class="hidden md:inline-flex items-center gap-2 bg-amber text-charcoal font-semibold px-5 py-2 rounded hover:bg-amber-dark transition-colors"
-    >
-      Call Now: (555) 123-4567
-    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-sm text-warmgray-300 hover:text-gold-light transition-colors">Services</a>
+      <a href="#about" class="text-sm text-warmgray-300 hover:text-gold-light transition-colors">About</a>
+      <a href="#contact" class="text-sm text-warmgray-300 hover:text-gold-light transition-colors">Contact</a>
+      <a
+        href="tel:+15551234567"
+        class="text-sm font-semibold bg-gold text-white px-5 py-2.5 rounded-sm hover:bg-gold-light transition-colors"
+      >
+        (555) 123-4567
+      </a>
+    </div>
 
     <button
       id="menu-toggle"
-      class="md:hidden text-white focus:outline-none"
+      class="md:hidden text-warmgray-300 hover:text-white transition-colors"
       aria-label="Toggle menu"
+      aria-expanded="false"
     >
-      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-charcoal-light px-4 pb-4">
-    <a href="#services" class="block py-2 text-gray-300 hover:text-amber">Services</a>
-    <a href="#about" class="block py-2 text-gray-300 hover:text-amber">About</a>
-    <a href="#contact" class="block py-2 text-gray-300 hover:text-amber">Contact</a>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-bark px-4 sm:px-6 pb-5 pt-2">
+    <a href="#services" class="block py-3 text-warmgray-300 hover:text-gold-light border-b border-white/5">Services</a>
+    <a href="#about" class="block py-3 text-warmgray-300 hover:text-gold-light border-b border-white/5">About</a>
+    <a href="#contact" class="block py-3 text-warmgray-300 hover:text-gold-light border-b border-white/5">Contact</a>
     <a
       href="tel:+15551234567"
-      class="block mt-2 text-center bg-amber text-charcoal font-semibold px-5 py-2 rounded hover:bg-amber-dark transition-colors"
+      class="block mt-4 text-center bg-gold text-white font-semibold px-5 py-3 rounded-sm hover:bg-gold-light transition-colors"
     >
       Call Now: (555) 123-4567
     </a>
@@ -38,9 +44,11 @@
 </nav>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(!isOpen));
   });
 </script>
