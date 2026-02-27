@@ -8,6 +8,10 @@
   --color-gold: #b8860b;
   --color-gold-light: #d4a843;
   --color-gold-muted: oklch(0.65 0.12 75 / 0.15);
+  --color-forest: #2d5a3d;
+  --color-forest-light: #3d7a52;
+  --color-rust: #b5543a;
+  --color-rust-light: #c4694f;
   --color-parchment: #faf6f1;
   --color-parchment-dark: #f0ebe4;
   --color-warmgray-300: #d6d0c8;

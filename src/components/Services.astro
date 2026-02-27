@@ -5,20 +5,41 @@ const services = [
     title: "Custom Carpentry",
     description: "Precision woodwork tailored to your space.",
     items: ["Built-in cabinetry", "Crown moulding & trim", "Custom shelving & storage"],
+    color: "rust",
   },
   {
     number: "02",
     title: "Exterior Work",
     description: "Built to withstand Canadian weather.",
     items: ["Deck building & repair", "Fence installation", "Exterior repairs & siding"],
+    color: "forest",
   },
   {
     number: "03",
     title: "General Handyman",
     description: "No job too small. Get it done right.",
     items: ["Drywall patching & repair", "Fixture installation", "General maintenance"],
+    color: "gold",
   },
 ];
+
+const dotColors: Record<string, string> = {
+  rust: "bg-rust",
+  forest: "bg-forest",
+  gold: "bg-gold",
+};
+
+const numColors: Record<string, string> = {
+  rust: "text-rust/30",
+  forest: "text-forest/30",
+  gold: "text-gold-light/30",
+};
+
+const borderColors: Record<string, string> = {
+  rust: "border-rust/20",
+  forest: "border-forest/20",
+  gold: "border-gold/20",
+};
 ---
 
 <section id="services" class="py-20 md:py-32 bg-parchment">
@@ -30,9 +51,9 @@ const services = [
       {services.map((service, i) => (
         <div class:list={[
           "grid grid-cols-1 md:grid-cols-[4rem_1fr_1fr] gap-4 md:gap-8 py-10",
-          i < services.length - 1 && "border-b border-warmgray-300",
+          i < services.length - 1 ? `border-b ${borderColors[service.color]}` : "",
         ]}>
-          <p class="font-display text-3xl text-warmgray-300 hidden md:block">{service.number}</p>
+          <p class:list={["font-display text-3xl hidden md:block", numColors[service.color]]}>{service.number}</p>
           <div>
             <h3 class="font-display text-2xl md:text-3xl mb-2">{service.title}</h3>
             <p class="text-warmgray-600 leading-relaxed">{service.description}</p>
@@ -40,7 +61,7 @@ const services = [
           <ul class="space-y-2 md:pt-1">
             {service.items.map((item) => (
               <li class="flex items-start gap-3 text-warmgray-700">
-                <span class="block w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></span>
+                <span class:list={["block w-1.5 h-1.5 rounded-full mt-2 shrink-0", dotColors[service.color]]}></span>
                 {item}
               </li>
             ))}
