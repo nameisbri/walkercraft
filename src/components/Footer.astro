@@ -1,0 +1,40 @@
+---
+const serviceAreas = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Stoney Creek"];
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal text-gray-400 py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <p class="text-2xl font-bold text-amber mb-2">WALKERCRAFT</p>
+        <p class="text-sm">Custom carpentry &amp; handyman services for the GTHA.</p>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold mb-3">Service Areas</h3>
+        <ul class="space-y-1 text-sm">
+          {serviceAreas.map((area) => (
+            <li>{area}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold mb-3">Contact</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="tel:+15551234567" class="hover:text-amber transition-colors">(555) 123-4567</a>
+          </li>
+          <li>
+            <a href="mailto:brett@walkercraft.ca" class="hover:text-amber transition-colors">brett@walkercraft.ca</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+      <p>&copy; {currentYear} Walkercraft. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
