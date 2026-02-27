@@ -9,7 +9,7 @@
   --color-gold-light: #d4a843;
   --color-gold-muted: oklch(0.65 0.12 75 / 0.15);
   --color-forest: #2d5a3d;
-  --color-forest-light: #3d7a52;
+  --color-forest-light: #5a9e72;
   --color-rust: #b5543a;
   --color-rust-light: #c4694f;
   --color-parchment: #faf6f1;
@@ -28,6 +28,16 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Subtle grain texture for dark sections */
 .grain::after {
   content: "";
@@ -42,4 +52,14 @@ html {
 /* Scroll offset for fixed navbar */
 [id] {
   scroll-margin-top: 5rem;
+}
+
+/* Focus-visible for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }
