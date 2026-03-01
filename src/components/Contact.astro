@@ -7,7 +7,7 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
     <div class="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 md:gap-20 items-start">
       <div class="md:sticky md:top-28">
         <p class="text-rust font-semibold text-sm tracking-widest uppercase mb-4">Contact</p>
-        <h2 class="font-display text-4xl md:text-5xl mb-6">Get a Free Estimate</h2>
+        <h2 class="font-display text-4xl md:text-5xl mb-6">Get a Free Quote</h2>
         <p class="text-warmgray-600 text-lg leading-relaxed mb-8">
           Tell us about your project and we'll get back to you within 24 hours.
         </p>
@@ -57,12 +57,11 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email</label>
+            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email <span class="font-normal text-warmgray-400">(optional)</span></label>
             <input
               type="email"
               id="email"
               name="email"
-              required
               class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
               placeholder="you@example.com"
             />
@@ -70,11 +69,10 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
         </div>
 
         <div>
-          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City</label>
+          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City <span class="font-normal text-warmgray-400">(optional)</span></label>
           <select
             id="city"
             name="city"
-            required
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
           >
             <option value="" disabled selected>Select your city</option>
@@ -92,7 +90,7 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
             rows="4"
             required
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors resize-y"
-            placeholder="Describe what you need help with..."
+            placeholder="e.g., Need a deck built, approx 12x16, pressure-treated wood"
           ></textarea>
         </div>
 
@@ -100,7 +98,7 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
           type="submit"
           class="w-full bg-gold text-white font-semibold px-6 py-4 rounded-sm text-base hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          Send My Request
+          Get My Free Quote
         </button>
 
         <div id="form-status" class="hidden text-center py-3 rounded-sm text-sm font-semibold"></div>
@@ -138,7 +136,7 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
       status.className = "text-center py-3 rounded-sm text-sm font-semibold bg-rust/10 text-rust border border-rust/20";
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Send My Request";
+      submitBtn.textContent = "Get My Free Quote";
     }
   });
 </script>
