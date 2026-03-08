@@ -1,12 +1,50 @@
 ---
-const featured = { caption: "Custom built-ins — Hamilton", tag: "Carpentry" };
+import { Image } from "astro:assets";
+import cofferedCeiling from "../assets/images/coffered-ceiling.jpg";
+import fireplaceSurround from "../assets/images/fireplace-surround.jpg";
+import frontPorchDeck from "../assets/images/front-porch-deck.jpg";
+import wallPanelling from "../assets/images/wall-panelling.jpg";
+import porchRestoration from "../assets/images/porch-restoration.jpg";
+import ceilingTrimRenovation from "../assets/images/ceiling-trim-renovation.jpg";
+
+const featured = {
+  caption: "Coffered ceiling — Hamilton",
+  tag: "Carpentry",
+  image: cofferedCeiling,
+  alt: "Custom coffered ceiling with trim work installed by Walkercraft Carpentry in Hamilton",
+};
 
 const projects = [
-  { caption: "Deck build — Ancaster", tag: "Exterior" },
-  { caption: "Crown moulding — Burlington", tag: "Carpentry" },
-  { caption: "Fence installation — Dundas", tag: "Exterior" },
-  { caption: "Kitchen shelving — Oakville", tag: "Carpentry" },
-  { caption: "Exterior repair — Stoney Creek", tag: "Handyman" },
+  {
+    caption: "Fireplace surround — Hamilton",
+    tag: "Carpentry",
+    image: fireplaceSurround,
+    alt: "Custom built-in fireplace surround with live-edge wood mantel by Walkercraft Carpentry",
+  },
+  {
+    caption: "Front porch build — Hamilton",
+    tag: "Exterior",
+    image: frontPorchDeck,
+    alt: "Cedar front porch deck built by Walkercraft Carpentry in Hamilton",
+  },
+  {
+    caption: "Wall panelling — Burlington",
+    tag: "Carpentry",
+    image: wallPanelling,
+    alt: "Custom wall panelling and wainscoting installed by Walkercraft Carpentry in Burlington",
+  },
+  {
+    caption: "Porch columns & soffit — Ancaster",
+    tag: "Exterior",
+    image: porchRestoration,
+    alt: "Porch column and soffit restoration by Walkercraft Carpentry in Ancaster",
+  },
+  {
+    caption: "Ceiling & trim renovation — Hamilton",
+    tag: "Carpentry",
+    image: ceilingTrimRenovation,
+    alt: "Wood plank ceiling with crown moulding and exposed brick renovation by Walkercraft Carpentry",
+  },
 ];
 ---
 
@@ -23,11 +61,14 @@ const projects = [
       <!-- Featured project: spans 2 cols + 2 rows -->
       <div class="group relative col-span-2 row-span-2 rounded-sm overflow-hidden border border-white/10">
         <div class="aspect-[4/3] md:aspect-auto md:h-full">
-          <!-- Placeholder: Replace with <img> -->
-          <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
-            <p class="text-warmgray-500 text-xs tracking-wide uppercase">{featured.caption}</p>
-          </div>
-
+          <Image
+            src={featured.image}
+            alt={featured.alt}
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
           <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 md:p-8">
             <span class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">{featured.tag}</span>
             <p class="font-display text-xl md:text-2xl">{featured.caption}</p>
@@ -38,11 +79,15 @@ const projects = [
       <!-- Right column: 2 stacked images -->
       {projects.slice(0, 2).map((project) => (
         <div class="group relative col-span-1 rounded-sm overflow-hidden border border-white/10">
-          <div class="aspect-[4/3]">
-            <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
-              <p class="text-warmgray-500 text-[10px] tracking-wide uppercase text-center px-2">{project.caption}</p>
-            </div>
-
+          <div class="aspect-[4/3] relative">
+            <Image
+              src={project.image}
+              alt={project.alt}
+              widths={[300, 600]}
+              sizes="(max-width: 768px) 50vw, 25vw"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
             <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
               <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
               <p class="text-sm font-display">{project.caption}</p>
@@ -51,20 +96,21 @@ const projects = [
         </div>
       ))}
 
-      <!-- Bottom row: 3 images spanning 2 cols each on mobile, 4 cols total -->
-      <!-- On mobile: 2 cols, so each takes 1 col. On desktop: first takes 1, rest take 1, last takes 2 -->
-
     </div>
 
     <!-- Bottom row: separate grid for clean 3-column layout -->
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-3">
       {projects.slice(2).map((project) => (
         <div class="group relative rounded-sm overflow-hidden border border-white/10">
-          <div class="aspect-[3/2]">
-            <div class="absolute inset-0 bg-bark-light flex items-center justify-center">
-              <p class="text-warmgray-500 text-[10px] tracking-wide uppercase text-center px-2">{project.caption}</p>
-            </div>
-
+          <div class="aspect-[3/2] relative">
+            <Image
+              src={project.image}
+              alt={project.alt}
+              widths={[300, 600]}
+              sizes="(max-width: 768px) 50vw, 33vw"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
             <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
               <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
               <p class="text-sm font-display">{project.caption}</p>

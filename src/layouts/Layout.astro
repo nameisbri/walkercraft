@@ -5,9 +5,11 @@ interface Props {
 }
 
 const {
-  title = "Walkercraft Carpentry | Custom Carpentry & Handyman Services in Hamilton & GTHA",
+  title = "Walkercraft Carpentry | Hamilton & GTHA Handyman Services",
   description = "Professional carpentry and home repair services by Brett Walker. Serving Hamilton, Burlington, Oakville, and the GTHA. Get a free estimate today.",
 } = Astro.props;
+
+const canonicalURL = "https://walkercraftcarpentry.ca/";
 ---
 
 <!doctype html>
@@ -19,6 +21,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
 
     <!-- Open Graph -->
@@ -26,6 +29,54 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_CA" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Walkercraft Carpentry" />
+    <meta property="og:image" content="https://walkercraftcarpentry.ca/og-image.jpg" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1600" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://walkercraftcarpentry.ca/og-image.jpg" />
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Walkercraft Carpentry",
+      "description": "Professional carpentry and handyman services in Hamilton and the GTHA.",
+      "url": "https://walkercraftcarpentry.ca",
+      "telephone": "+1-226-789-6525",
+      "email": "info@walkercraftcarpentry.ca",
+      "founder": { "@type": "Person", "name": "Brett Walker" },
+      "foundingDate": "2019",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hamilton",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Hamilton" },
+        { "@type": "City", "name": "Burlington" },
+        { "@type": "City", "name": "Oakville" },
+        { "@type": "City", "name": "Ancaster" },
+        { "@type": "City", "name": "Dundas" },
+        { "@type": "City", "name": "Stoney Creek" }
+      ],
+      "priceRange": "$$",
+      "image": "https://walkercraftcarpentry.ca/og-image.jpg"
+    })} />
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Walkercraft Carpentry",
+      "url": "https://walkercraftcarpentry.ca"
+    })} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
