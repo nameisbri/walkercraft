@@ -1,11 +1,41 @@
 ---
 import { Image } from "astro:assets";
+import Lightbox from "./Lightbox.astro";
+
+// Existing images
 import cofferedCeiling from "../assets/images/coffered-ceiling.jpg";
 import fireplaceSurround from "../assets/images/fireplace-surround.jpg";
 import frontPorchDeck from "../assets/images/front-porch-deck.jpg";
 import wallPanelling from "../assets/images/wall-panelling.jpg";
 import porchRestoration from "../assets/images/porch-restoration.jpg";
 import ceilingTrimRenovation from "../assets/images/ceiling-trim-renovation.jpg";
+
+// New images
+import playhouseFront from "../assets/images/playhouse-front.jpg";
+import fireplaceBuiltin from "../assets/images/fireplace-builtin.jpg";
+import basementBuiltin from "../assets/images/basement-builtin.jpg";
+import cofferedCeilingProgress from "../assets/images/coffered-ceiling-progress.jpg";
+import playhouseSide from "../assets/images/playhouse-side.jpg";
+import customShelfBuild from "../assets/images/custom-shelf-build.jpg";
+import coffeeTableStaining from "../assets/images/coffee-table-staining.jpg";
+import coffeeTableFinished from "../assets/images/coffee-table-finished.jpg";
+import porchGableBefore from "../assets/images/porch-gable-before.jpg";
+import porchGableAfter from "../assets/images/porch-gable-after.jpg";
+import canoePaddlesWorkshop from "../assets/images/canoe-paddles-workshop.jpg";
+import livingWall from "../assets/images/living-wall.jpg";
+import cofferedCeilingDetail from "../assets/images/coffered-ceiling-detail.jpg";
+import displayShelving from "../assets/images/display-shelving.jpg";
+import whiteWainscoting from "../assets/images/white-wainscoting.jpg";
+import cuttingBoard from "../assets/images/cutting-board.jpg";
+import woodCoasters from "../assets/images/wood-coasters.jpg";
+import canoePaddles from "../assets/images/canoe-paddles.jpg";
+import commercialArchedWindows from "../assets/images/commercial-arched-windows.jpg";
+import woodCeilingBrick from "../assets/images/wood-ceiling-brick.jpg";
+import mantelClock from "../assets/images/mantel-clock.jpg";
+import deckStairs from "../assets/images/deck-stairs.jpg";
+import windowTrimBrick from "../assets/images/window-trim-brick.jpg";
+import porchColumnsProgress from "../assets/images/porch-columns-progress.jpg";
+import frontPorchNight from "../assets/images/front-porch-night.jpg";
 
 const featured = {
   caption: "Coffered ceiling — Hamilton",
@@ -14,7 +44,7 @@ const featured = {
   alt: "Custom coffered ceiling with trim work installed by Walkercraft Carpentry in Hamilton",
 };
 
-const projects = [
+const topProjects = [
   {
     caption: "Fireplace surround — Hamilton",
     tag: "Carpentry",
@@ -46,6 +76,157 @@ const projects = [
     alt: "Wood plank ceiling with crown moulding and exposed brick renovation by Walkercraft Carpentry",
   },
 ];
+
+// Before/after pair (rendered specially in the template)
+const porchGable = {
+  caption: "Porch gable — before & after",
+  tag: "Exterior",
+  before: { image: porchGableBefore, alt: "Porch gable before renovation by Walkercraft Carpentry" },
+  after: { image: porchGableAfter, alt: "Porch gable after cedar siding restoration by Walkercraft Carpentry" },
+};
+
+const galleryProjects = [
+  {
+    caption: "Playhouse build — Hamilton",
+    tag: "Exterior",
+    image: playhouseFront,
+    alt: "Custom children's playhouse with elevated deck and storage by Walkercraft Carpentry",
+  },
+  {
+    caption: "Playhouse — side view",
+    tag: "Exterior",
+    image: playhouseSide,
+    alt: "Custom playhouse with stairs and storage door by Walkercraft Carpentry",
+  },
+  {
+    caption: "Living wall — commercial",
+    tag: "Commercial",
+    image: livingWall,
+    alt: "Reclaimed wood living wall installation with plants by Walkercraft Carpentry",
+  },
+  {
+    caption: "Arched window trim — Hamilton",
+    tag: "Commercial",
+    image: commercialArchedWindows,
+    alt: "Commercial space with arched window trim and exposed brick by Walkercraft Carpentry",
+  },
+  {
+    caption: "Wood plank ceiling — Hamilton",
+    tag: "Carpentry",
+    image: woodCeilingBrick,
+    alt: "Wood plank ceiling with crown moulding and exposed brick by Walkercraft Carpentry",
+  },
+  {
+    caption: "Coffered ceiling detail — Hamilton",
+    tag: "Carpentry",
+    image: cofferedCeilingDetail,
+    alt: "Coffered ceiling trim detail by Walkercraft Carpentry",
+  },
+  {
+    caption: "Window trim & beams — Hamilton",
+    tag: "Commercial",
+    image: windowTrimBrick,
+    alt: "Custom window trim with exposed brick and timber beams by Walkercraft Carpentry",
+  },
+  {
+    caption: "White wainscoting — Burlington",
+    tag: "Carpentry",
+    image: whiteWainscoting,
+    alt: "Full wall white wainscoting panelling by Walkercraft Carpentry in Burlington",
+  },
+  {
+    caption: "Fireplace built-in — Hamilton",
+    tag: "Carpentry",
+    image: fireplaceBuiltin,
+    alt: "Custom built-in fireplace unit with white cabinets and live-edge mantel by Walkercraft Carpentry",
+  },
+  {
+    caption: "Front porch — evening",
+    tag: "Exterior",
+    image: frontPorchNight,
+    alt: "Cedar front porch deck illuminated at night by Walkercraft Carpentry",
+  },
+  {
+    caption: "Coffered ceiling in progress",
+    tag: "Process",
+    image: cofferedCeilingProgress,
+    alt: "Coffered ceiling construction in progress by Walkercraft Carpentry",
+  },
+  {
+    caption: "Porch columns in progress",
+    tag: "Process",
+    image: porchColumnsProgress,
+    alt: "Porch column wraps and cedar soffit installation in progress by Walkercraft Carpentry",
+  },
+  {
+    caption: "Custom deck stairs — Hamilton",
+    tag: "Exterior",
+    image: deckStairs,
+    alt: "Custom corner wrap deck stairs with metal balusters by Walkercraft Carpentry",
+  },
+  {
+    caption: "Display shelving — retail",
+    tag: "Commercial",
+    image: displayShelving,
+    alt: "Custom A-frame display shelving for retail storefront by Walkercraft Carpentry",
+  },
+  {
+    caption: "Basement built-in — Hamilton",
+    tag: "Carpentry",
+    image: basementBuiltin,
+    alt: "Custom basement built-in cabinet with walnut counter by Walkercraft Carpentry",
+  },
+  {
+    caption: "Canoe paddles — handcrafted",
+    tag: "Woodworking",
+    image: canoePaddles,
+    alt: "Four handcrafted multi-wood canoe paddles by Walkercraft Carpentry",
+  },
+  {
+    caption: "Custom coffee table — staining",
+    tag: "Woodworking",
+    image: coffeeTableStaining,
+    alt: "Mid-century modern coffee table being stained by Walkercraft Carpentry",
+  },
+  {
+    caption: "Coffee table — installed",
+    tag: "Woodworking",
+    image: coffeeTableFinished,
+    alt: "Custom mid-century coffee table in living room by Walkercraft Carpentry",
+  },
+  {
+    caption: "Handcrafted cutting board",
+    tag: "Woodworking",
+    image: cuttingBoard,
+    alt: "Maple and walnut handcrafted cutting board by Walkercraft Carpentry",
+  },
+  {
+    caption: "Reclaimed wood coasters",
+    tag: "Woodworking",
+    image: woodCoasters,
+    alt: "Reclaimed wood coasters tied with twine by Walkercraft Carpentry",
+  },
+  {
+    caption: "Mantel clock — handmade",
+    tag: "Woodworking",
+    image: mantelClock,
+    alt: "Handmade cedar mantel clock by Walkercraft Carpentry",
+  },
+  {
+    caption: "Paddle carving — in progress",
+    tag: "Woodworking",
+    image: canoePaddlesWorkshop,
+    alt: "Canoe paddles being hand-carved in the workshop by Walkercraft Carpentry",
+  },
+  {
+    caption: "Custom shelf build",
+    tag: "Woodworking",
+    image: customShelfBuild,
+    alt: "Custom birch plywood floating shelf on workbench by Walkercraft Carpentry",
+  },
+];
+
+const photoCount = 1 + topProjects.length + galleryProjects.length + 2; // +2 for the before/after pair
 ---
 
 <section id="projects" class="relative py-20 md:py-32 bg-bark text-white overflow-hidden grain">
@@ -59,14 +240,18 @@ const projects = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
 
       <!-- Featured project: spans 2 cols + 2 rows -->
-      <div class="group relative col-span-2 row-span-2 rounded-sm overflow-hidden border border-white/10">
+      <div
+        class="group relative col-span-2 row-span-2 rounded-sm overflow-hidden border border-white/10 cursor-pointer"
+        data-lightbox
+        data-caption={featured.caption}
+      >
         <div class="aspect-[4/3] md:aspect-auto md:h-full">
           <Image
             src={featured.image}
             alt={featured.alt}
             widths={[400, 800, 1200]}
             sizes="(max-width: 768px) 100vw, 50vw"
-            class="absolute inset-0 w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
           <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 md:p-8">
@@ -77,15 +262,19 @@ const projects = [
       </div>
 
       <!-- Right column: 2 stacked images -->
-      {projects.slice(0, 2).map((project) => (
-        <div class="group relative col-span-1 rounded-sm overflow-hidden border border-white/10">
+      {topProjects.slice(0, 2).map((project) => (
+        <div
+          class="group relative col-span-1 rounded-sm overflow-hidden border border-white/10 cursor-pointer"
+          data-lightbox
+          data-caption={project.caption}
+        >
           <div class="aspect-[4/3] relative">
             <Image
               src={project.image}
               alt={project.alt}
               widths={[300, 600]}
               sizes="(max-width: 768px) 50vw, 25vw"
-              class="absolute inset-0 w-full h-full object-cover"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
             <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
@@ -98,17 +287,21 @@ const projects = [
 
     </div>
 
-    <!-- Bottom row: separate grid for clean 3-column layout -->
+    <!-- Bottom row of top projects -->
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-3">
-      {projects.slice(2).map((project) => (
-        <div class="group relative rounded-sm overflow-hidden border border-white/10">
+      {topProjects.slice(2).map((project) => (
+        <div
+          class="group relative rounded-sm overflow-hidden border border-white/10 cursor-pointer"
+          data-lightbox
+          data-caption={project.caption}
+        >
           <div class="aspect-[3/2] relative">
             <Image
               src={project.image}
               alt={project.alt}
               widths={[300, 600]}
               sizes="(max-width: 768px) 50vw, 33vw"
-              class="absolute inset-0 w-full h-full object-cover"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
             <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
@@ -119,5 +312,97 @@ const projects = [
         </div>
       ))}
     </div>
+
+    <!-- Extended gallery -->
+    <div class="mt-12 md:mt-16">
+      <h3 class="font-display text-2xl md:text-3xl mb-8">More Projects</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
+        {/* First 4 items (treehouse + living wall + arched windows) */}
+        {galleryProjects.slice(0, 4).map((project) => (
+          <div
+            class="group relative rounded-sm overflow-hidden border border-white/10 cursor-pointer"
+            data-lightbox
+            data-caption={project.caption}
+          >
+            <div class="aspect-square relative">
+              <Image
+                src={project.image}
+                alt={project.alt}
+                widths={[300, 600]}
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
+                <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
+                <p class="text-sm font-display">{project.caption}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Before / After — spans 2 columns */}
+        <div class="col-span-2 rounded-sm overflow-hidden border border-white/10">
+          <div class="relative">
+            <span class="absolute top-2 left-2 z-10 rounded bg-bark/80 px-2 py-0.5 text-[10px] font-semibold tracking-widest uppercase text-gold">{porchGable.tag}</span>
+            <p class="absolute top-2 right-2 z-10 rounded bg-bark/80 px-2 py-0.5 text-xs font-display text-white">{porchGable.caption}</p>
+            <div class="grid grid-cols-2">
+              <div class="relative cursor-pointer group" data-lightbox data-caption="Porch gable — before">
+                <div class="aspect-square relative">
+                  <Image
+                    src={porchGable.before.image}
+                    alt={porchGable.before.alt}
+                    widths={[300, 600]}
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span class="absolute bottom-2 left-2 rounded bg-bark/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-warmgray-300">Before</span>
+                </div>
+              </div>
+              <div class="relative cursor-pointer group" data-lightbox data-caption="Porch gable — after">
+                <div class="aspect-square relative">
+                  <Image
+                    src={porchGable.after.image}
+                    alt={porchGable.after.alt}
+                    widths={[300, 600]}
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span class="absolute bottom-2 left-2 rounded bg-gold/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-bark">After</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Remaining gallery items */}
+        {galleryProjects.slice(4).map((project) => (
+          <div
+            class="group relative rounded-sm overflow-hidden border border-white/10 cursor-pointer"
+            data-lightbox
+            data-caption={project.caption}
+          >
+            <div class="aspect-square relative">
+              <Image
+                src={project.image}
+                alt={project.alt}
+                widths={[300, 600]}
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-bark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
+                <span class="text-[10px] font-semibold tracking-widest uppercase text-gold mb-1">{project.tag}</span>
+                <p class="text-sm font-display">{project.caption}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
+
+  <Lightbox />
 </section>
