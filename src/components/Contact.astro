@@ -1,5 +1,7 @@
 ---
 const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Stoney Creek", "Other"];
+const webhookUrl = "https://leads.walkercraftcarpentry.ca/api/lead/submit";
+const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
 ---
 
 <section id="contact" class="py-20 md:py-32 bg-parchment border-t border-warmgray-300/50">
@@ -28,10 +30,6 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
       </div>
 
       <form id="contact-form" class="bg-white rounded-sm border border-warmgray-300/60 p-6 md:p-8 space-y-5">
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-        <input type="hidden" name="subject" value="New Walkercraft Carpentry Lead" />
-        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="webhook" value="https://auto.neblina.tech/webhooks/lead-qualifier/walkercraft" />
 
         <div>
           <label for="name" class="block text-sm font-semibold mb-1.5 text-bark">Name</label>
@@ -47,22 +45,22 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label for="phone" class="block text-sm font-semibold mb-1.5 text-bark">Phone</label>
+            <label for="phone" class="block text-sm font-semibold mb-1.5 text-bark">Phone <span class="font-normal text-warmgray-600">(optional)</span></label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              required
               class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
               placeholder="(555) 123-4567"
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email <span class="font-normal text-warmgray-600">(optional)</span></label>
+            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email</label>
             <input
               type="email"
               id="email"
               name="email"
+              required
               class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
               placeholder="you@example.com"
             />
@@ -70,10 +68,11 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
         </div>
 
         <div>
-          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City <span class="font-normal text-warmgray-600">(optional)</span></label>
+          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City</label>
           <select
             id="city"
             name="city"
+            required
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
           >
             <option value="" disabled selected>Select your city</option>
@@ -84,10 +83,10 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-semibold mb-1.5 text-bark">Tell us about your project</label>
+          <label for="project_description" class="block text-sm font-semibold mb-1.5 text-bark">Tell us about your project</label>
           <textarea
-            id="message"
-            name="message"
+            id="project_description"
+            name="project_description"
             rows="4"
             required
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors resize-y"
@@ -108,24 +107,36 @@ const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Sto
   </div>
 </section>
 
-<script>
-  const form = document.getElementById("contact-form") as HTMLFormElement;
-  const status = document.getElementById("form-status")!;
+<script define:vars={{ webhookUrl, webhookSecret }}>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: new FormData(form),
-      });
-      const data = await response.json();
+    const fd = new FormData(form);
+    const payload = {
+      name: fd.get("name"),
+      email: fd.get("email"),
+      phone: fd.get("phone") || "",
+      city: fd.get("city"),
+      project_description: fd.get("project_description"),
+    };
 
-      if (data.success) {
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Webhook-Secret": webhookSecret,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
         status.textContent = "Thanks! We'll be in touch within 24 hours.";
         status.className = "text-center py-3 rounded-sm text-sm font-semibold bg-forest/10 text-forest border border-forest/20";
         form.reset();
