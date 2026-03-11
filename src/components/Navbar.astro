@@ -30,7 +30,7 @@
     </button>
   </div>
 
-  <div id="mobile-menu" class="md:hidden border-t border-white/5 bg-bark px-4 sm:px-6 overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0" aria-hidden="true">
+  <div id="mobile-menu" class="md:hidden border-t border-white/5 bg-bark px-4 sm:px-6 overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0" aria-hidden="true" inert>
     <div class="pb-5 pt-2">
       <a href="#services" class="block py-3 text-warmgray-300 hover:text-gold-light border-b border-white/5">Services</a>
       <a href="#about" class="block py-3 text-warmgray-300 hover:text-gold-light border-b border-white/5">About</a>
@@ -54,10 +54,12 @@
       menu!.style.maxHeight = "0";
       menu!.style.opacity = "0";
       menu!.setAttribute("aria-hidden", "true");
+      menu!.setAttribute("inert", "");
     } else {
       menu!.style.maxHeight = menu!.scrollHeight + "px";
       menu!.style.opacity = "1";
       menu!.setAttribute("aria-hidden", "false");
+      menu!.removeAttribute("inert");
     }
     toggle.setAttribute("aria-expanded", String(!isOpen));
   });

@@ -1,4 +1,7 @@
 ---
+import "@fontsource-variable/dm-sans";
+import "@fontsource/dm-serif-display";
+
 interface Props {
   title?: string;
   description?: string;
@@ -81,13 +84,7 @@ const canonicalURL = "https://walkercraftcarpentry.ca/";
       "url": "https://walkercraftcarpentry.ca"
     })} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts (self-hosted for performance) -->
   </head>
   <body class="bg-parchment text-bark font-body antialiased">
     <slot />
