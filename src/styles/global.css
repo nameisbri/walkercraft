@@ -8,6 +8,8 @@
   --color-gold: #b8860b;
   --color-gold-light: #d4a843;
   --color-gold-muted: oklch(0.65 0.12 75 / 0.15);
+  --color-gold-btn: #8b6914;
+  --color-gold-btn-hover: #7a5c10;
   --color-forest: #2d5a3d;
   --color-forest-light: #5a9e72;
   --color-rust: #b5543a;
@@ -52,6 +54,23 @@ html {
 /* Scroll offset for fixed navbar */
 [id] {
   scroll-margin-top: 5rem;
+}
+
+/* Skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-gold);
+  color: var(--color-bark);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 0.125rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 1rem;
 }
 
 /* Focus-visible for interactive elements */

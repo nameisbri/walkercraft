@@ -83,6 +83,11 @@
     lightbox.classList.remove('hidden');
     lightbox.classList.add('flex');
     document.body.style.overflow = 'hidden';
+    // Mark rest of page as inert so focus stays in lightbox
+    document.querySelectorAll('body > *:not(#lightbox):not(script):not(style)').forEach((el) => {
+      el.setAttribute('inert', '');
+      el.setAttribute('data-lightbox-inert', '');
+    });
     btnClose.focus();
   }
 
@@ -90,6 +95,11 @@
     lightbox.classList.add('hidden');
     lightbox.classList.remove('flex');
     document.body.style.overflow = '';
+    // Restore inert elements
+    document.querySelectorAll('[data-lightbox-inert]').forEach((el) => {
+      el.removeAttribute('inert');
+      el.removeAttribute('data-lightbox-inert');
+    });
     if (previouslyFocused) previouslyFocused.focus();
   }
 
@@ -103,6 +113,8 @@
       // Make keyboard accessible
       if (!el.getAttribute('tabindex')) el.setAttribute('tabindex', '0');
       el.setAttribute('role', 'button');
+      const caption = el.getAttribute('data-caption') || 'View photo';
+      el.setAttribute('aria-label', `View photo: ${caption}`);
       el.addEventListener('keydown', (e) => {
         if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
           e.preventDefault();
@@ -123,12 +135,24 @@
     }
   });
 
-  // Keyboard navigation
+  // Keyboard navigation + focus trap
   document.addEventListener('keydown', (e) => {
     if (lightbox.classList.contains('hidden')) return;
     if (e.key === 'Escape') close();
     if (e.key === 'ArrowLeft') show(currentIndex - 1);
     if (e.key === 'ArrowRight') show(currentIndex + 1);
+    if (e.key === 'Tab') {
+      const focusable = lightbox.querySelectorAll('button');
+      const first = focusable[0] as HTMLElement;
+      const last = focusable[focusable.length - 1] as HTMLElement;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 
   // Touch swipe support

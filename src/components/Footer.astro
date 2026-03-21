@@ -13,16 +13,16 @@ const currentYear = new Date().getFullYear();
         </p>
       </div>
 
-      <div>
+      <nav aria-label="Service areas">
         <h3 class="text-white text-xs font-semibold tracking-widest uppercase mb-4">Serving</h3>
         <ul class="space-y-1.5 text-sm">
           {serviceAreas.map((area) => (
             <li>{area}</li>
           ))}
         </ul>
-      </div>
+      </nav>
 
-      <div>
+      <nav aria-label="Contact information">
         <h3 class="text-white text-xs font-semibold tracking-widest uppercase mb-4">Contact</h3>
         <ul class="space-y-2 text-sm">
           <li>
@@ -32,7 +32,7 @@ const currentYear = new Date().getFullYear();
             <a href="mailto:info@walkercraftcarpentry.ca" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">info@walkercraftcarpentry.ca</a>
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
 
     <div class="border-t border-white/5 mt-12 pt-6 text-xs text-warmgray-500">

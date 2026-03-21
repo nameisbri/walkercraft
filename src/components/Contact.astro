@@ -32,12 +32,13 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
       <form id="contact-form" class="bg-white rounded-sm border border-warmgray-300/60 p-6 md:p-8 space-y-5">
 
         <div>
-          <label for="name" class="block text-sm font-semibold mb-1.5 text-bark">Name</label>
+          <label for="name" class="block text-sm font-semibold mb-1.5 text-bark">Name <span class="text-rust" aria-hidden="true">*</span></label>
           <input
             type="text"
             id="name"
             name="name"
             required
+            aria-required="true"
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
             placeholder="Your full name"
           />
@@ -55,12 +56,13 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email</label>
+            <label for="email" class="block text-sm font-semibold mb-1.5 text-bark">Email <span class="text-rust" aria-hidden="true">*</span></label>
             <input
               type="email"
               id="email"
               name="email"
               required
+              aria-required="true"
               class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
               placeholder="you@example.com"
             />
@@ -68,11 +70,12 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
         </div>
 
         <div>
-          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City</label>
+          <label for="city" class="block text-sm font-semibold mb-1.5 text-bark">City <span class="text-rust" aria-hidden="true">*</span></label>
           <select
             id="city"
             name="city"
             required
+            aria-required="true"
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
           >
             <option value="" disabled selected>Select your city</option>
@@ -83,12 +86,13 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
         </div>
 
         <div>
-          <label for="project_description" class="block text-sm font-semibold mb-1.5 text-bark">Tell us about your project</label>
+          <label for="project_description" class="block text-sm font-semibold mb-1.5 text-bark">Tell us about your project <span class="text-rust" aria-hidden="true">*</span></label>
           <textarea
             id="project_description"
             name="project_description"
             rows="4"
             required
+            aria-required="true"
             class="w-full border border-warmgray-300 rounded-sm px-4 py-3 text-base bg-white focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors resize-y"
             placeholder="e.g., Need a deck built, approx 12x16, pressure-treated wood"
           ></textarea>
@@ -96,12 +100,12 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
 
         <button
           type="submit"
-          class="w-full bg-gold text-white font-semibold px-6 py-4 rounded-sm text-base hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          class="w-full bg-gold-btn text-white font-semibold px-6 py-4 rounded-sm text-base hover:bg-gold-btn-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           Get My Free Quote
         </button>
 
-        <div id="form-status" class="hidden text-center py-3 rounded-sm text-sm font-semibold"></div>
+        <div id="form-status" class="hidden text-center py-3 rounded-sm text-sm font-semibold" role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
