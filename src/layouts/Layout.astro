@@ -5,18 +5,20 @@ import "@fontsource/dm-serif-display";
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
 }
 
 const {
   title = "Walkercraft Carpentry | Hamilton & GTHA Handyman Services",
   description = "Professional carpentry and home repair services by Brett Walker. Serving Hamilton, Burlington, Oakville, and the GTHA. Get a free estimate today.",
+  canonicalPath = "/",
 } = Astro.props;
 
-const canonicalURL = "https://walkercraftcarpentry.ca/";
+const canonicalURL = `https://walkercraftcarpentry.ca${canonicalPath}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -27,7 +29,14 @@ const canonicalURL = "https://walkercraftcarpentry.ca/";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="content-language" content="en-CA" />
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Hamilton, Ontario" />
+    <meta name="geo.position" content="43.2557;-79.8711" />
+    <meta name="ICBM" content="43.2557, -79.8711" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en-CA" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
     <title>{title}</title>
 
     <!-- Open Graph -->
@@ -64,13 +73,27 @@ const canonicalURL = "https://walkercraftcarpentry.ca/";
         "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "areaServed": [
-        { "@type": "City", "name": "Hamilton" },
-        { "@type": "City", "name": "Burlington" },
-        { "@type": "City", "name": "Oakville" },
-        { "@type": "City", "name": "Ancaster" },
-        { "@type": "City", "name": "Dundas" },
-        { "@type": "City", "name": "Stoney Creek" }
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.2557,
+          "longitude": -79.8711
+        },
+        "geoRadius": "40000",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        }
+      },
+      "serviceArea": [
+        { "@type": "City", "name": "Hamilton", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Burlington", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Oakville", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Ancaster", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Dundas", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Stoney Creek", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } }
       ],
       "priceRange": "$$",
       "image": "https://walkercraftcarpentry.ca/og-image.jpg"
