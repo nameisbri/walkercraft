@@ -1,5 +1,12 @@
 ---
-const serviceAreas = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Stoney Creek"];
+const serviceAreas = [
+  { name: "Hamilton", slug: "hamilton" },
+  { name: "Burlington", slug: "burlington" },
+  { name: "Oakville", slug: "oakville" },
+  { name: "Ancaster", slug: "ancaster" },
+  { name: "Dundas", slug: "dundas" },
+  { name: "Stoney Creek", slug: "stoney-creek" },
+];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -17,7 +24,11 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-white text-xs font-semibold tracking-widest uppercase mb-4">Serving</h3>
         <ul class="space-y-1.5 text-sm">
           {serviceAreas.map((area) => (
-            <li>{area}</li>
+            <li>
+              <a href={`/${area.slug}/`} class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">
+                {area.name}
+              </a>
+            </li>
           ))}
         </ul>
       </nav>
