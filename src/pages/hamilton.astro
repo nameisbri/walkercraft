@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import LocationPage from "../components/LocationPage.astro";
+import Footer from "../components/Footer.astro";
+import { getLocation } from "../data/locations";
+
+const location = getLocation("hamilton")!;
+---
+
+<Layout title={location.metaTitle} description={location.metaDescription} canonicalPath="/hamilton/">
+  <Navbar />
+  <main id="main-content" tabindex="-1">
+    <LocationPage location={location} />
+  </main>
+  <Footer />
+</Layout>
