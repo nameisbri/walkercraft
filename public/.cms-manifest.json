@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T23:21:24.350Z",
+  "generatedAt": "2026-03-28T23:38:29.121Z",
   "fields": [
     {
       "key": "about_heading",
@@ -39,6 +39,13 @@
     {
       "key": "contact_subheading",
       "fallback": "Tell us about your project and we'll get back to you within 24 hours.",
+      "file": "src/components/Contact.astro",
+      "type": "text",
+      "group": "Other / Content"
+    },
+    {
+      "key": "contact_submit_button",
+      "fallback": "Get My Free Quote",
       "file": "src/components/Contact.astro",
       "type": "text",
       "group": "Other / Content"
@@ -275,6 +282,13 @@
       "group": "Other / Content"
     },
     {
+      "key": "services_heading",
+      "fallback": "What We Do",
+      "file": "src/components/Services.astro",
+      "type": "text",
+      "group": "Other / Content"
+    },
+    {
       "key": "testimonial_attribution",
       "fallback": "Homeowner, Hamilton",
       "file": "src/components/Trust.astro",
@@ -286,6 +300,27 @@
       "fallback": "\\u201CBrett did an incredible job on our deck. On time, on budget, and the quality speaks for itself. Wouldn\\u2019t hesitate to recommend Walkercraft Carpentry.\\u201D",
       "file": "src/components/Trust.astro",
       "type": "textarea",
+      "group": "Other / Content"
+    },
+    {
+      "key": "trust_badge_1",
+      "fallback": "Fully Insured",
+      "file": "src/components/Trust.astro",
+      "type": "text",
+      "group": "Other / Content"
+    },
+    {
+      "key": "trust_badge_2",
+      "fallback": "Locally Owned",
+      "file": "src/components/Trust.astro",
+      "type": "text",
+      "group": "Other / Content"
+    },
+    {
+      "key": "trust_badge_3",
+      "fallback": "Free Estimates",
+      "file": "src/components/Trust.astro",
+      "type": "text",
       "group": "Other / Content"
     },
     {
@@ -301,6 +336,13 @@
       "file": "src/components/Contact.astro",
       "type": "text",
       "group": "Sitewide / Contact Info"
+    },
+    {
+      "key": "footer_tagline",
+      "fallback": "Custom carpentry & handyman services for homeowners across the Greater Toronto and Hamilton Area.",
+      "file": "src/components/Footer.astro",
+      "type": "text",
+      "group": "Sitewide / Footer"
     }
   ]
 }

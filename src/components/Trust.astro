@@ -17,19 +17,19 @@ const c = await getCMSContent();
         <svg class="w-4 h-4 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Fully Insured
+        {cms(c, 'trust_badge_1', 'Fully Insured')}
       </span>
       <span class="flex items-center gap-2">
         <svg class="w-4 h-4 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Locally Owned
+        {cms(c, 'trust_badge_2', 'Locally Owned')}
       </span>
       <span class="flex items-center gap-2">
         <svg class="w-4 h-4 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Free Estimates
+        {cms(c, 'trust_badge_3', 'Free Estimates')}
       </span>
     </div>
   </div>

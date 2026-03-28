@@ -105,7 +105,7 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
           type="submit"
           class="w-full bg-gold-btn text-white font-semibold px-6 py-4 rounded-sm text-base hover:bg-gold-btn-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          Get My Free Quote
+          {cms(c, 'contact_submit_button', 'Get My Free Quote')}
         </button>
 
         <div id="form-status" class="hidden text-center py-3 rounded-sm text-sm font-semibold" role="status" aria-live="polite"></div>
