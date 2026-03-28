@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Lightbox from "./Lightbox.astro";
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 
 // Existing images
 import cofferedCeiling from "../assets/images/coffered-ceiling.jpg";
@@ -232,8 +234,8 @@ const photoCount = 1 + topProjects.length + galleryProjects.length + 2; // +2 fo
 <section id="projects" class="relative py-20 md:py-32 bg-bark text-white overflow-hidden grain">
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 md:mb-16 gap-4">
-      <h2 class="font-display text-4xl md:text-5xl">Our Work</h2>
-      <p class="text-warmgray-500 text-sm">50+ projects across the GTHA</p>
+      <h2 class="font-display text-4xl md:text-5xl">{cms(c, 'projects_heading', 'Our Work')}</h2>
+      <p class="text-warmgray-500 text-sm">{cms(c, 'projects_subtitle', '50+ projects across the GTHA')}</p>
     </div>
 
     <!-- Bento grid: featured large left, 2 stacked right, 3 across bottom -->
@@ -315,7 +317,7 @@ const photoCount = 1 + topProjects.length + galleryProjects.length + 2; // +2 fo
 
     <!-- Extended gallery -->
     <div class="mt-12 md:mt-16">
-      <h3 class="font-display text-2xl md:text-3xl mb-8">More Projects</h3>
+      <h3 class="font-display text-2xl md:text-3xl mb-8">{cms(c, 'projects_gallery_heading', 'More Projects')}</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
         {/* First 4 items (treehouse + living wall + arched windows) */}
         {galleryProjects.slice(0, 4).map((project) => (

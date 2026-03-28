@@ -24,7 +24,8 @@ function walk(dir, exts) {
 }
 
 // Match cms(c, 'key', 'fallback') or cms(c, 'key', "fallback") — single line
-const CMS_PATTERN = /cms\(\s*c\s*,\s*['"]([^'"]+)['"]\s*,\s*['"`]([^'"`]*)['"]\s*\)/g
+// Uses alternation to correctly handle quotes inside the fallback string
+const CMS_PATTERN = /cms\(\s*c\s*,\s*['"]([^'"]+)['"]\s*,\s*(?:'([^']*)'|"([^"]*)"|`([^`]*)`)(?:\s*\)|\s*,)/g
 
 const files = walk(SRC, ['.astro', '.tsx', '.ts'])
 const fields = []
@@ -37,7 +38,7 @@ for (const file of files) {
   let match
   while ((match = CMS_PATTERN.exec(content)) !== null) {
     const key = match[1]
-    const fallback = match[2]
+    const fallback = match[2] ?? match[3] ?? match[4] ?? ''
 
     if (!seen.has(key)) {
       seen.add(key)

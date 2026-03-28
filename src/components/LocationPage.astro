@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import type { Location } from "../data/locations";
 import { getOtherLocations } from "../data/locations";
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 
 interface Props {
   location: Location;
@@ -10,20 +12,30 @@ interface Props {
 const { location } = Astro.props;
 const otherLocations = getOtherLocations(location.slug);
 
+// Location descriptions keyed by slug — explicit cms() calls so the manifest generator can discover them
+const locationDescriptions: Record<string, string> = {
+  hamilton: cms(c, 'location_hamilton_description', 'Based right here in Hamilton, Walkercraft Carpentry has been serving the Hammer since 2019. From Westdale to Stoney Creek, we know these homes — their character, their quirks, and what they need.'),
+  burlington: cms(c, 'location_burlington_description', 'Walkercraft Carpentry serves homeowners across Burlington, from the lakefront to Alton Village. Quality craftsmanship for your home — no runaround.'),
+  oakville: cms(c, 'location_oakville_description', 'Serving Oakville homeowners with the same hands-on craftsmanship we bring to every job. From Bronte to Old Oakville, we handle custom carpentry, decks, and repairs.'),
+  ancaster: cms(c, 'location_ancaster_description', 'Walkercraft Carpentry serves Ancaster and the surrounding area. From heritage home restorations to new builds, we bring careful craftsmanship to every project.'),
+  dundas: cms(c, 'location_dundas_description', "Just down the road from our home base, Walkercraft Carpentry has completed projects throughout Dundas. We understand the character of the Valley Town's homes."),
+  'stoney-creek': cms(c, 'location_stoney_creek_description', 'Walkercraft Carpentry serves homeowners across Stoney Creek, from Winona to the Battlefield area. Reliable carpentry and handyman services for your home.'),
+};
+
 const services = [
   {
-    title: "Custom Carpentry",
-    description: "Shelves, cabinets, trim — built to fit your house.",
+    title: cms(c, 'service_1_title', "Custom Carpentry"),
+    description: cms(c, 'service_1_description', "Shelves, cabinets, trim — built to fit your house."),
     items: ["Built-in cabinetry", "Crown moulding & trim", "Custom shelving & storage"],
   },
   {
-    title: "Exterior Work",
-    description: "Built to withstand Canadian weather.",
+    title: cms(c, 'service_2_title', "Exterior Work"),
+    description: cms(c, 'service_2_description', "Built to withstand Canadian weather."),
     items: ["Deck building & repair", "Fence installation", "Exterior repairs & siding"],
   },
   {
-    title: "General Handyman",
-    description: "The stuff you keep putting off. I'll take care of it.",
+    title: cms(c, 'service_3_title', "General Handyman"),
+    description: cms(c, 'service_3_description', "The stuff you keep putting off. I'll take care of it."),
     items: ["Drywall patching & repair", "Fixture installation", "General maintenance"],
   },
 ];
@@ -36,24 +48,24 @@ const services = [
     <div class="max-w-3xl">
       <p class="text-gold font-semibold text-sm tracking-widest uppercase mb-6">{location.name}, Ontario</p>
       <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6">
-        Carpentry &amp; Handyman Services in {location.name}.
+        {cms(c, 'location_hero_heading', 'Carpentry & Handyman Services')} in {location.name}.
       </h1>
       <p class="text-lg text-warmgray-300 mb-10 max-w-xl leading-relaxed">
-        {location.description}
+        {locationDescriptions[location.slug] ?? location.description}
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a
           href="/#contact"
           class="bg-gold-btn text-white font-semibold px-8 py-4 rounded-sm text-base hover:bg-gold-btn-hover transition-colors text-center"
         >
-          Get a Free Quote
+          {cms(c, 'location_hero_cta', 'Get a Free Quote')}
         </a>
       </div>
       <a
         href="tel:+12267896525"
         class="inline-block mt-5 text-warmgray-500 text-sm hover:text-gold-light transition-colors"
       >
-        Or call directly: (226) 789-6525
+        Or call directly: {cms(c, 'phone', '(226) 789-6525')}
       </a>
     </div>
   </div>
@@ -62,9 +74,9 @@ const services = [
 <!-- Services -->
 <section class="py-16 md:py-24 bg-parchment">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <h2 class="font-display text-3xl md:text-4xl mb-4">What We Do in {location.name}</h2>
+    <h2 class="font-display text-3xl md:text-4xl mb-4">{cms(c, 'location_services_heading', 'What We Do')} in {location.name}</h2>
     <p class="text-warmgray-600 mb-12 max-w-2xl">
-      Full-service carpentry and handyman work for homeowners in {location.name} and nearby areas
+      {cms(c, 'location_services_subheading', 'Full-service carpentry and handyman work for homeowners')} in {location.name} and nearby areas
       including {location.nearbyAreas.slice(0, 3).join(", ")}.
     </p>
 
@@ -86,7 +98,7 @@ const services = [
     </div>
 
     <p class="mt-8 text-sm text-warmgray-600">
-      <a href="/#services" class="underline decoration-bark/20 underline-offset-2 hover:decoration-bark/60 transition-colors">See full service details &rarr;</a>
+      <a href="/#services" class="underline decoration-bark/20 underline-offset-2 hover:decoration-bark/60 transition-colors">{cms(c, 'location_services_link', 'See full service details')} &rarr;</a>
     </p>
   </div>
 </section>
@@ -94,8 +106,8 @@ const services = [
 <!-- Projects -->
 <section class="py-16 md:py-24 bg-bark text-white grain">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <h2 class="font-display text-3xl md:text-4xl mb-4">Our Work in {location.name}</h2>
-    <p class="text-warmgray-500 text-sm mb-10">A few projects from {location.name} and the surrounding area.</p>
+    <h2 class="font-display text-3xl md:text-4xl mb-4">{cms(c, 'location_projects_heading', 'Our Work')} in {location.name}</h2>
+    <p class="text-warmgray-500 text-sm mb-10">{cms(c, 'location_projects_subheading', 'A few projects from')} {location.name} {cms(c, 'location_projects_subheading_suffix', 'and the surrounding area.')}</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
       {location.images.map((img) => (
@@ -118,7 +130,7 @@ const services = [
     </div>
 
     <p class="mt-8 text-sm text-warmgray-500">
-      <a href="/#projects" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">See all projects &rarr;</a>
+      <a href="/#projects" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">{cms(c, 'location_projects_link', 'See all projects')} &rarr;</a>
     </p>
   </div>
 </section>
@@ -126,22 +138,22 @@ const services = [
 <!-- CTA Banner -->
 <section class="py-16 md:py-20 bg-forest text-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-    <h2 class="font-display text-3xl md:text-4xl mb-4">Ready to get started?</h2>
+    <h2 class="font-display text-3xl md:text-4xl mb-4">{cms(c, 'location_cta_heading', 'Ready to get started?')}</h2>
     <p class="text-white/80 mb-8 max-w-lg mx-auto">
-      Free estimates for homeowners in {location.name} and the GTHA. No obligation, no runaround.
+      {cms(c, 'location_cta_subheading', 'Free estimates for homeowners')} in {location.name} {cms(c, 'location_cta_subheading_suffix', 'and the GTHA. No obligation, no runaround.')}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
         href="/#contact"
         class="bg-gold-btn text-white font-semibold px-8 py-4 rounded-sm text-base hover:bg-gold-btn-hover transition-colors"
       >
-        Get a Free Quote
+        {cms(c, 'location_cta_button', 'Get a Free Quote')}
       </a>
       <a
         href="tel:+12267896525"
         class="border border-white/30 text-white font-semibold px-8 py-4 rounded-sm text-base hover:bg-white/10 transition-colors"
       >
-        (226) 789-6525
+        {cms(c, 'phone', '(226) 789-6525')}
       </a>
     </div>
   </div>
@@ -150,7 +162,7 @@ const services = [
 <!-- Cross-Links: Also Serving -->
 <section class="py-12 md:py-16 bg-parchment border-t border-bark/10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <h2 class="font-display text-2xl mb-6">Also Serving</h2>
+    <h2 class="font-display text-2xl mb-6">{cms(c, 'location_also_serving_heading', 'Also Serving')}</h2>
     <div class="flex flex-wrap gap-3">
       {otherLocations.map((loc) => (
         <a
