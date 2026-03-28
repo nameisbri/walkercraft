@@ -1,5 +1,6 @@
 ---
-
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 ---
 
 <section class="relative bg-bark text-white pt-32 pb-20 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40 overflow-hidden grain">
@@ -7,26 +8,26 @@
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
     <div class="max-w-3xl">
-      <p class="text-gold font-semibold text-sm tracking-widest uppercase mb-6">Hamilton & GTHA</p>
+      <p class="text-gold font-semibold text-sm tracking-widest uppercase mb-6">{cms(c, 'hero_badge', 'Hamilton & GTHA')}</p>
       <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] sm:leading-[0.95] mb-8">
-        Expert Carpentry &amp; Handyman Services.
+        {cms(c, 'hero_headline', 'Expert Carpentry & Handyman Services.')}
       </h1>
       <p class="text-lg md:text-xl text-warmgray-300 mb-12 max-w-xl leading-relaxed">
-        Custom builds, decks, and home repairs done right. One-man operation, no runaround.
+        {cms(c, 'hero_subheading', 'Custom builds, decks, and home repairs done right. One-man operation, no runaround.')}
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a
           href="#contact"
           class="bg-gold-btn text-white font-semibold px-8 py-4 rounded-sm text-base hover:bg-gold-btn-hover transition-colors text-center"
         >
-          Get a Free Quote
+          {cms(c, 'hero_cta', 'Get a Free Quote')}
         </a>
       </div>
       <a
         href="tel:+12267896525"
         class="inline-block mt-5 text-warmgray-500 text-sm hover:text-gold-light transition-colors"
       >
-        Or call directly: (226) 789-6525
+        Or call directly: {cms(c, 'phone', '(226) 789-6525')}
       </a>
     </div>
   </div>

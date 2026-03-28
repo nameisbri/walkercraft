@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import brettWalker from "../assets/images/brett-walker.jpg";
 import commercialRenovation from "../assets/images/commercial-renovation.jpg";
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 ---
 
 <section id="about" class="relative py-20 md:py-32 bg-parchment overflow-hidden">
@@ -31,19 +33,19 @@ import commercialRenovation from "../assets/images/commercial-renovation.jpg";
       </div>
 
       <div class="order-1 md:order-2">
-        <h2 class="font-display text-4xl md:text-5xl text-bark mb-8">Meet Brett Walker</h2>
+        <h2 class="font-display text-4xl md:text-5xl text-bark mb-8">{cms(c, 'about_heading', 'Meet Brett Walker')}</h2>
         <p class="text-warmgray-600 text-lg leading-relaxed mb-5">
-          Brett started Walkercraft Carpentry because he kept seeing homeowners get the runaround from contractors who overpromise and disappear. He wanted to do it differently — show up when he says he will, do the work right, and charge a fair price.
+          {cms(c, 'about_paragraph_1', 'Brett started Walkercraft Carpentry because he kept seeing homeowners get the runaround from contractors who overpromise and disappear. He wanted to do it differently — show up when he says he will, do the work right, and charge a fair price.')}
         </p>
         <p class="text-warmgray-600 text-lg leading-relaxed mb-8">
-          He does everything from custom built-ins to full deck builds, and he treats a drywall patch the same as a big reno. Show up on time, clean up after, get it done.
+          {cms(c, 'about_paragraph_2', 'He does everything from custom built-ins to full deck builds, and he treats a drywall patch the same as a big reno. Show up on time, clean up after, get it done.')}
         </p>
         <div class="flex items-center gap-3 text-forest text-sm font-medium">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          Locally owned in Hamilton, Ontario
+          {cms(c, 'about_location', 'Locally owned in Hamilton, Ontario')}
         </div>
       </div>
     </div>

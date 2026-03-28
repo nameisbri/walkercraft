@@ -1,4 +1,7 @@
 ---
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
+
 const cities = ["Hamilton", "Burlington", "Oakville", "Ancaster", "Dundas", "Stoney Creek", "Other"];
 const webhookUrl = "https://walkercraft-leads.auto.neblina.tech/api/lead/submit";
 const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
@@ -9,22 +12,22 @@ const webhookSecret = import.meta.env.WEBHOOK_SECRET ?? "";
     <div class="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 md:gap-20 items-start">
       <div class="md:sticky md:top-28">
         <p class="text-rust font-semibold text-sm tracking-widest uppercase mb-4">Contact</p>
-        <h2 class="font-display text-4xl md:text-5xl mb-6">Get a Free Quote</h2>
+        <h2 class="font-display text-4xl md:text-5xl mb-6">{cms(c, 'contact_heading', 'Get a Free Quote')}</h2>
         <p class="text-warmgray-600 text-lg leading-relaxed mb-8">
-          Tell us about your project and we'll get back to you within 24 hours.
+          {cms(c, 'contact_subheading', "Tell us about your project and we'll get back to you within 24 hours.")}
         </p>
         <div class="hidden md:block space-y-4 text-warmgray-600">
           <div class="flex items-center gap-3">
             <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <a href="tel:+12267896525" class="hover:text-gold transition-colors">(226) 789-6525</a>
+            <a href="tel:+12267896525" class="hover:text-gold transition-colors">{cms(c, 'phone', '(226) 789-6525')}</a>
           </div>
           <div class="flex items-center gap-3">
             <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <a href="mailto:info@walkercraftcarpentry.ca" class="hover:text-gold transition-colors">info@walkercraftcarpentry.ca</a>
+            <a href="mailto:info@walkercraftcarpentry.ca" class="hover:text-gold transition-colors">{cms(c, 'email', 'info@walkercraftcarpentry.ca')}</a>
           </div>
         </div>
       </div>

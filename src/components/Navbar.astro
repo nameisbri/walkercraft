@@ -1,5 +1,6 @@
 ---
-
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 ---
 
 <nav class="bg-bark/95 backdrop-blur-sm text-white fixed w-full top-0 z-50 border-b border-white/5">
@@ -14,7 +15,7 @@
         href="tel:+12267896525"
         class="text-sm font-semibold bg-gold-btn text-white px-5 py-2.5 rounded-sm hover:bg-gold-btn-hover transition-colors"
       >
-        (226) 789-6525
+        {cms(c, 'phone', '(226) 789-6525')}
       </a>
     </div>
 
@@ -40,7 +41,7 @@
         href="tel:+12267896525"
         class="block mt-4 text-center bg-gold-btn text-white font-semibold px-5 py-3 rounded-sm hover:bg-gold-btn-hover transition-colors"
       >
-        Call Now: (226) 789-6525
+        Call Now: {cms(c, 'phone', '(226) 789-6525')}
       </a>
     </div>
   </div>

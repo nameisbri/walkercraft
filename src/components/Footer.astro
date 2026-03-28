@@ -1,4 +1,7 @@
 ---
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
+
 const serviceAreas = [
   { name: "Hamilton", slug: "hamilton" },
   { name: "Burlington", slug: "burlington" },
@@ -37,10 +40,10 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-white text-xs font-semibold tracking-widest uppercase mb-4">Contact</h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="tel:+12267896525" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">(226) 789-6525</a>
+            <a href="tel:+12267896525" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">{cms(c, 'phone', '(226) 789-6525')}</a>
           </li>
           <li>
-            <a href="mailto:info@walkercraftcarpentry.ca" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">info@walkercraftcarpentry.ca</a>
+            <a href="mailto:info@walkercraftcarpentry.ca" class="underline decoration-white/20 underline-offset-2 hover:text-gold-light hover:decoration-gold-light/40 transition-colors">{cms(c, 'email', 'info@walkercraftcarpentry.ca')}</a>
           </li>
         </ul>
       </nav>

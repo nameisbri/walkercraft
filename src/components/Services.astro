@@ -1,23 +1,26 @@
 ---
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
+
 const services = [
   {
     number: "01",
-    title: "Custom Carpentry",
-    description: "Shelves, cabinets, trim — built to fit your house.",
+    title: cms(c, 'service_1_title', "Custom Carpentry"),
+    description: cms(c, 'service_1_description', "Shelves, cabinets, trim — built to fit your house."),
     items: ["Built-in cabinetry", "Crown moulding & trim", "Custom shelving & storage"],
     color: "rust",
   },
   {
     number: "02",
-    title: "Exterior Work",
-    description: "Built to withstand Canadian weather.",
+    title: cms(c, 'service_2_title', "Exterior Work"),
+    description: cms(c, 'service_2_description', "Built to withstand Canadian weather."),
     items: ["Deck building & repair", "Fence installation", "Exterior repairs & siding"],
     color: "forest",
   },
   {
     number: "03",
-    title: "General Handyman",
-    description: "The stuff you keep putting off. I'll take care of it.",
+    title: cms(c, 'service_3_title', "General Handyman"),
+    description: cms(c, 'service_3_description', "The stuff you keep putting off. I'll take care of it."),
     items: ["Drywall patching & repair", "Fixture installation", "General maintenance"],
     color: "gold",
   },

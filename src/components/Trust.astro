@@ -1,14 +1,15 @@
 ---
-
+import { getCMSContent, cms } from '@lib/cms';
+const c = await getCMSContent();
 ---
 
 <section class="py-12 md:py-16 bg-parchment-dark border-y border-warmgray-300/40">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <blockquote class="text-center max-w-2xl mx-auto mb-8">
       <p class="text-lg md:text-xl text-bark italic leading-relaxed">
-        "Brett did an incredible job on our deck. On time, on budget, and the quality speaks for itself. Wouldn't hesitate to recommend Walkercraft Carpentry."
+        {cms(c, 'testimonial_quote', '"Brett did an incredible job on our deck. On time, on budget, and the quality speaks for itself. Wouldn\'t hesitate to recommend Walkercraft Carpentry."')}
       </p>
-      <footer class="mt-3 text-sm text-warmgray-600">&mdash; Homeowner, Hamilton</footer>
+      <footer class="mt-3 text-sm text-warmgray-600">&mdash; {cms(c, 'testimonial_attribution', 'Homeowner, Hamilton')}</footer>
     </blockquote>
 
     <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-warmgray-600">
