@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-03-28T22:53:49.696Z",
+  "fields": [
+    {
+      "key": "about_heading",
+      "fallback": "Meet Brett Walker",
+      "file": "src/components/About.astro",
+      "type": "text"
+    },
+    {
+      "key": "about_location",
+      "fallback": "Locally owned in Hamilton, Ontario",
+      "file": "src/components/About.astro",
+      "type": "text"
+    },
+    {
+      "key": "about_paragraph_1",
+      "fallback": "Brett started Walkercraft Carpentry because he kept seeing homeowners get the runaround from contractors who overpromise and disappear. He wanted to do it differently — show up when he says he will, do the work right, and charge a fair price.",
+      "file": "src/components/About.astro",
+      "type": "textarea"
+    },
+    {
+      "key": "about_paragraph_2",
+      "fallback": "He does everything from custom built-ins to full deck builds, and he treats a drywall patch the same as a big reno. Show up on time, clean up after, get it done.",
+      "file": "src/components/About.astro",
+      "type": "textarea"
+    },
+    {
+      "key": "contact_heading",
+      "fallback": "Get a Free Quote",
+      "file": "src/components/Contact.astro",
+      "type": "text"
+    },
+    {
+      "key": "email",
+      "fallback": "info@walkercraftcarpentry.ca",
+      "file": "src/components/Contact.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_badge",
+      "fallback": "Hamilton & GTHA",
+      "file": "src/components/Hero.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_cta",
+      "fallback": "Get a Free Quote",
+      "file": "src/components/Hero.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_headline",
+      "fallback": "Expert Carpentry & Handyman Services.",
+      "file": "src/components/Hero.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_subheading",
+      "fallback": "Custom builds, decks, and home repairs done right. One-man operation, no runaround.",
+      "file": "src/components/Hero.astro",
+      "type": "text"
+    },
+    {
+      "key": "phone",
+      "fallback": "(226) 789-6525",
+      "file": "src/components/Contact.astro",
+      "type": "text"
+    },
+    {
+      "key": "service_1_description",
+      "fallback": "Shelves, cabinets, trim — built to fit your house.",
+      "file": "src/components/Services.astro",
+      "type": "text"
+    },
+    {
+      "key": "service_1_title",
+      "fallback": "Custom Carpentry",
+      "file": "src/components/Services.astro",
+      "type": "text"
+    },
+    {
+      "key": "service_2_description",
+      "fallback": "Built to withstand Canadian weather.",
+      "file": "src/components/Services.astro",
+      "type": "text"
+    },
+    {
+      "key": "service_2_title",
+      "fallback": "Exterior Work",
+      "file": "src/components/Services.astro",
+      "type": "text"
+    },
+    {
+      "key": "service_3_title",
+      "fallback": "General Handyman",
+      "file": "src/components/Services.astro",
+      "type": "text"
+    },
+    {
+      "key": "testimonial_attribution",
+      "fallback": "Homeowner, Hamilton",
+      "file": "src/components/Trust.astro",
+      "type": "text"
+    }
+  ]
+}
