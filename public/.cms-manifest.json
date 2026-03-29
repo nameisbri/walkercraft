@@ -1,338 +1,338 @@
 {
-  "generatedAt": "2026-03-28T23:38:29.121Z",
+  "generatedAt": "2026-03-29T00:04:08.604Z",
   "fields": [
     {
       "key": "about_heading",
       "fallback": "Meet Brett Walker",
       "file": "src/components/About.astro",
       "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "about_location",
-      "fallback": "Locally owned in Hamilton, Ontario",
-      "file": "src/components/About.astro",
-      "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / About"
     },
     {
       "key": "about_paragraph_1",
       "fallback": "Brett started Walkercraft Carpentry because he kept seeing homeowners get the runaround from contractors who overpromise and disappear. He wanted to do it differently — show up when he says he will, do the work right, and charge a fair price.",
       "file": "src/components/About.astro",
       "type": "textarea",
-      "group": "Other / Content"
+      "group": "Homepage / About"
     },
     {
       "key": "about_paragraph_2",
       "fallback": "He does everything from custom built-ins to full deck builds, and he treats a drywall patch the same as a big reno. Show up on time, clean up after, get it done.",
       "file": "src/components/About.astro",
       "type": "textarea",
-      "group": "Other / Content"
+      "group": "Homepage / About"
+    },
+    {
+      "key": "about_location",
+      "fallback": "Locally owned in Hamilton, Ontario",
+      "file": "src/components/About.astro",
+      "type": "text",
+      "group": "Homepage / About"
     },
     {
       "key": "contact_heading",
       "fallback": "Get a Free Quote",
       "file": "src/components/Contact.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Contact"
     },
     {
       "key": "contact_subheading",
       "fallback": "Tell us about your project and we'll get back to you within 24 hours.",
       "file": "src/components/Contact.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Contact"
     },
     {
       "key": "contact_submit_button",
       "fallback": "Get My Free Quote",
       "file": "src/components/Contact.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Contact"
     },
     {
       "key": "hero_badge",
       "fallback": "Hamilton & GTHA",
       "file": "src/components/Hero.astro",
       "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "hero_cta",
-      "fallback": "Get a Free Quote",
-      "file": "src/components/Hero.astro",
-      "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Hero"
     },
     {
       "key": "hero_headline",
       "fallback": "Expert Carpentry & Handyman Services.",
       "file": "src/components/Hero.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Hero"
     },
     {
       "key": "hero_subheading",
       "fallback": "Custom builds, decks, and home repairs done right. One-man operation, no runaround.",
       "file": "src/components/Hero.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Hero"
     },
     {
-      "key": "location_also_serving_heading",
-      "fallback": "Also Serving",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_ancaster_description",
-      "fallback": "Walkercraft Carpentry serves Ancaster and the surrounding area. From heritage home restorations to new builds, we bring careful craftsmanship to every project.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_burlington_description",
-      "fallback": "Walkercraft Carpentry serves homeowners across Burlington, from the lakefront to Alton Village. Quality craftsmanship for your home — no runaround.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_cta_button",
+      "key": "hero_cta",
       "fallback": "Get a Free Quote",
-      "file": "src/components/LocationPage.astro",
+      "file": "src/components/Hero.astro",
       "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_cta_heading",
-      "fallback": "Ready to get started?",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_cta_subheading",
-      "fallback": "Free estimates for homeowners",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_cta_subheading_suffix",
-      "fallback": "and the GTHA. No obligation, no runaround.",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_dundas_description",
-      "fallback": "Just down the road from our home base, Walkercraft Carpentry has completed projects throughout Dundas. We understand the character of the Valley Town's homes.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_hamilton_description",
-      "fallback": "Based right here in Hamilton, Walkercraft Carpentry has been serving the Hammer since 2019. From Westdale to Stoney Creek, we know these homes — their character, their quirks, and what they need.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_hero_cta",
-      "fallback": "Get a Free Quote",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_hero_heading",
-      "fallback": "Carpentry & Handyman Services",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_oakville_description",
-      "fallback": "Serving Oakville homeowners with the same hands-on craftsmanship we bring to every job. From Bronte to Old Oakville, we handle custom carpentry, decks, and repairs.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_projects_heading",
-      "fallback": "Our Work",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_projects_link",
-      "fallback": "See all projects",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_projects_subheading",
-      "fallback": "A few projects from",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_projects_subheading_suffix",
-      "fallback": "and the surrounding area.",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_services_heading",
-      "fallback": "What We Do",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_services_link",
-      "fallback": "See full service details",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_services_subheading",
-      "fallback": "Full-service carpentry and handyman work for homeowners",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "location_stoney_creek_description",
-      "fallback": "Walkercraft Carpentry serves homeowners across Stoney Creek, from Winona to the Battlefield area. Reliable carpentry and handyman services for your home.",
-      "file": "src/components/LocationPage.astro",
-      "type": "textarea",
-      "group": "Other / Content"
-    },
-    {
-      "key": "projects_gallery_heading",
-      "fallback": "More Projects",
-      "file": "src/components/Projects.astro",
-      "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Hero"
     },
     {
       "key": "projects_heading",
       "fallback": "Our Work",
       "file": "src/components/Projects.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Projects"
     },
     {
       "key": "projects_subtitle",
       "fallback": "50+ projects across the GTHA",
       "file": "src/components/Projects.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Projects"
     },
     {
-      "key": "service_1_description",
-      "fallback": "Shelves, cabinets, trim — built to fit your house.",
-      "file": "src/components/LocationPage.astro",
+      "key": "projects_gallery_heading",
+      "fallback": "More Projects",
+      "file": "src/components/Projects.astro",
       "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "service_1_title",
-      "fallback": "Custom Carpentry",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "service_2_description",
-      "fallback": "Built to withstand Canadian weather.",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "service_2_title",
-      "fallback": "Exterior Work",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "service_3_description",
-      "fallback": "The stuff you keep putting off. I'll take care of it.",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "service_3_title",
-      "fallback": "General Handyman",
-      "file": "src/components/LocationPage.astro",
-      "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Projects"
     },
     {
       "key": "services_heading",
       "fallback": "What We Do",
       "file": "src/components/Services.astro",
       "type": "text",
-      "group": "Other / Content"
-    },
-    {
-      "key": "testimonial_attribution",
-      "fallback": "Homeowner, Hamilton",
-      "file": "src/components/Trust.astro",
-      "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Services"
     },
     {
       "key": "testimonial_quote",
       "fallback": "\\u201CBrett did an incredible job on our deck. On time, on budget, and the quality speaks for itself. Wouldn\\u2019t hesitate to recommend Walkercraft Carpentry.\\u201D",
       "file": "src/components/Trust.astro",
       "type": "textarea",
-      "group": "Other / Content"
+      "group": "Homepage / Trust"
+    },
+    {
+      "key": "testimonial_attribution",
+      "fallback": "Homeowner, Hamilton",
+      "file": "src/components/Trust.astro",
+      "type": "text",
+      "group": "Homepage / Trust"
     },
     {
       "key": "trust_badge_1",
       "fallback": "Fully Insured",
       "file": "src/components/Trust.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Trust"
     },
     {
       "key": "trust_badge_2",
       "fallback": "Locally Owned",
       "file": "src/components/Trust.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Trust"
     },
     {
       "key": "trust_badge_3",
       "fallback": "Free Estimates",
       "file": "src/components/Trust.astro",
       "type": "text",
-      "group": "Other / Content"
+      "group": "Homepage / Trust"
     },
     {
-      "key": "email",
-      "fallback": "info@walkercraftcarpentry.ca",
+      "key": "location_hamilton_description",
+      "fallback": "Based right here in Hamilton, Walkercraft Carpentry has been serving the Hammer since 2019. From Westdale to Stoney Creek, we know these homes — their character, their quirks, and what they need.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "location_burlington_description",
+      "fallback": "Walkercraft Carpentry serves homeowners across Burlington, from the lakefront to Alton Village. Quality craftsmanship for your home — no runaround.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "location_oakville_description",
+      "fallback": "Serving Oakville homeowners with the same hands-on craftsmanship we bring to every job. From Bronte to Old Oakville, we handle custom carpentry, decks, and repairs.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "location_ancaster_description",
+      "fallback": "Walkercraft Carpentry serves Ancaster and the surrounding area. From heritage home restorations to new builds, we bring careful craftsmanship to every project.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "location_dundas_description",
+      "fallback": "Just down the road from our home base, Walkercraft Carpentry has completed projects throughout Dundas. We understand the character of the Valley Town's homes.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "location_stoney_creek_description",
+      "fallback": "Walkercraft Carpentry serves homeowners across Stoney Creek, from Winona to the Battlefield area. Reliable carpentry and handyman services for your home.",
+      "file": "src/components/LocationPage.astro",
+      "type": "textarea",
+      "group": "Locations"
+    },
+    {
+      "key": "service_1_title",
+      "fallback": "Custom Carpentry",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "service_1_description",
+      "fallback": "Shelves, cabinets, trim — built to fit your house.",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "service_2_title",
+      "fallback": "Exterior Work",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "service_2_description",
+      "fallback": "Built to withstand Canadian weather.",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "service_3_title",
+      "fallback": "General Handyman",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "service_3_description",
+      "fallback": "The stuff you keep putting off. I'll take care of it.",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_hero_heading",
+      "fallback": "Carpentry & Handyman Services",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_hero_cta",
+      "fallback": "Get a Free Quote",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_services_heading",
+      "fallback": "What We Do",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_services_subheading",
+      "fallback": "Full-service carpentry and handyman work for homeowners",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_services_link",
+      "fallback": "See full service details",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_projects_heading",
+      "fallback": "Our Work",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_projects_subheading",
+      "fallback": "A few projects from",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_projects_subheading_suffix",
+      "fallback": "and the surrounding area.",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_projects_link",
+      "fallback": "See all projects",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_cta_heading",
+      "fallback": "Ready to get started?",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_cta_subheading",
+      "fallback": "Free estimates for homeowners",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_cta_subheading_suffix",
+      "fallback": "and the GTHA. No obligation, no runaround.",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_cta_button",
+      "fallback": "Get a Free Quote",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "location_also_serving_heading",
+      "fallback": "Also Serving",
+      "file": "src/components/LocationPage.astro",
+      "type": "text",
+      "group": "Locations"
+    },
+    {
+      "key": "phone",
+      "fallback": "(226) 789-6525",
       "file": "src/components/Contact.astro",
       "type": "text",
       "group": "Sitewide / Contact Info"
     },
     {
-      "key": "phone",
-      "fallback": "(226) 789-6525",
+      "key": "email",
+      "fallback": "info@walkercraftcarpentry.ca",
       "file": "src/components/Contact.astro",
       "type": "text",
       "group": "Sitewide / Contact Info"
